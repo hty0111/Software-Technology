@@ -13,11 +13,11 @@ int main(void)
 {
 	int m; 
 	Node *p, *head, *tail;
-	printf("保存整数的个数：");
+	printf("淇濆瓨鏁存暟鐨勪釜鏁帮細");
 	scanf("%d", &m );
-	printf("保存的数据：");
+	printf("淇濆瓨鐨勬暟鎹細");
 	
-	head = (Node*)malloc( sizeof(Node) );     //创建链表 
+	head = (Node*)malloc( sizeof(Node) );     //鍒涘缓閾捐〃 
 	tail = head;
 	int i = 0;
 	while( m > 0 && i < m )           
@@ -30,8 +30,8 @@ int main(void)
 	}
 	tail->next = NULL;
 	
-	head = DeleteRepeat(head, m);        //删除绝对值相同的结点 
-	p = head->next;                      //输出链表 
+	head = DeleteRepeat(head, m);        //鍒犻櫎缁濆鍊肩浉鍚岀殑缁撶偣 
+	p = head->next;                      //杈撳嚭閾捐〃 
     while(p)
 	{       
 		printf( "%d ", p->data );
@@ -43,16 +43,16 @@ int main(void)
 
 
 Node* DeleteRepeat( Node *q, int n ){
-	int NewData[Max];         //创建数组进行比较 
+	int NewData[Max];         //鍒涘缓鏁扮粍杩涜姣旇緝 
 	int i = 0;
 	Node *p1, *p2;
 	p1 = q->next; 
 	p2 = p1->next;
-	NewData[0] = abs( p1->data );     //先把链表第一个数放入数组 
+	NewData[0] = abs( p1->data );     //鍏堟妸閾捐〃绗竴涓暟鏀惧叆鏁扮粍 
 	while( p2 != NULL ){
 		int j, flag = 1;
-		for( j=0; j<=i; j++ ){        //遍历数组 
-			if( NewData[j] == abs( p2->data ) ){     //若在数组中找到绝对值相同的数则删除节点
+		for( j=0; j<=i; j++ ){        //閬嶅巻鏁扮粍 
+			if( NewData[j] == abs( p2->data ) ){     //鑻ュ湪鏁扮粍涓壘鍒扮粷瀵瑰�肩浉鍚岀殑鏁板垯鍒犻櫎鑺傜偣
 				p1->next = p2->next;
 				free( p2 );
 				p2 = p1->next;
@@ -61,7 +61,7 @@ Node* DeleteRepeat( Node *q, int n ){
 				break;          
 			}
 		}
-		if( flag ){               //若没有找到则放入数据继续遍历 
+		if( flag ){               //鑻ユ病鏈夋壘鍒板垯鏀惧叆鏁版嵁缁х画閬嶅巻 
 			NewData[++i] = abs( p2->data );			
 			p1 = p2;
 			p2 = p1->next;
